@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'keys.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -50,20 +51,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD5cocvEmmDmkYlJtFAoRT8e6CA0JH9TCo',
-    appId: '1:1026976402578:android:bccf2e1059496155c6aa4b',
-    messagingSenderId: '1026976402578',
-    projectId: 'medical-app-5c63f',
-    storageBucket: 'medical-app-5c63f.appspot.com',
+    apiKey: androidApiKey,
+    appId: appId,
+    messagingSenderId: messagingSenderId,
+    projectId: projectId,
+    storageBucket: storageBucket,
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyA4RXs0u6DQXvPRk8OfSo2hEw2IMGA0ftQ',
-    appId: '1:1026976402578:ios:99ff187989a71fdfc6aa4b',
-    messagingSenderId: '1026976402578',
-    projectId: 'medical-app-5c63f',
-    storageBucket: 'medical-app-5c63f.appspot.com',
-    iosClientId: '1026976402578-hdortlvmoatf965becgmfgu0ib1bvvui.apps.googleusercontent.com',
-    iosBundleId: 'com.example.medicalApp',
+    apiKey: iosApiKey,
+    appId: appId,
+    messagingSenderId: messagingSenderId,
+    projectId: projectId,
+    storageBucket: storageBucket,
+    iosClientId: iosClientId,
+    iosBundleId: iosBundleId,
   );
 }

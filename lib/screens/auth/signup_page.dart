@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:medical_app/screens/auth/login_page.dart';
 
 import '../../widgets/my_button.dart';
@@ -13,7 +15,14 @@ class SignupPage extends StatelessWidget {
   final emailController = TextEditingController();
 
   //sign in method
-  void signUserUp() {}
+  void signUserUp() async {
+    if (emailController.text.trim().isNotEmpty &&
+        passwordController.text.trim().isNotEmpty) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+    }
+  }
 
   void goTo(context, page) {
     Navigator.pushReplacement(
@@ -52,18 +61,6 @@ class SignupPage extends StatelessWidget {
                     fontSize: 18,
                   ),
                 ),
-
-                const SizedBox(
-                  height: 20,
-                ),
-                //username
-
-                MyTextField(
-                  controller: emailController,
-                  hintText: "Email",
-                  obscureText: false,
-                ),
-
                 const SizedBox(
                   height: 20,
                 ),
@@ -72,6 +69,16 @@ class SignupPage extends StatelessWidget {
                 MyTextField(
                   controller: usernameController,
                   hintText: "Nom d'utilisateur",
+                  obscureText: false,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                //username
+
+                MyTextField(
+                  controller: emailController,
+                  hintText: "Email",
                   obscureText: false,
                 ),
 
